@@ -1,0 +1,58 @@
+﻿@model DynamicConf.Models.ConfigurationItems
+
+<h1>Create Configuration</h1>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label">Name</label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label">Type</label>
+                <select asp-for="Type" class="form-control">
+                    <option value="">-- Select Type --</option>
+                    <option value="string">String</option>
+                    <option value="int">Integer</option>
+                    <option value="bool">Boolean</option>
+                    <option value="double">Double</option>
+                </select>
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+
+
+
+            <div class="form-group">
+                <label asp-for="Value" class="control-label">Value</label>
+                <input asp-for="Value" class="form-control" />
+                <span asp-validation-for="Value" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="IsActive" class="control-label">Is Active</label>
+                <select asp-for="IsActive" class="form-control">
+                    <option value="true">True</option>
+                    <option value="false">False</option>
+                </select>
+                <span asp-validation-for="IsActive" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-group">
+                <label asp-for="ApplicationName" class="control-label">ApplicationName</label>
+                <input asp-for="ApplicationName" class="form-control" />
+                <span asp-validation-for="ApplicationName" class="text-danger"></span>
+            </div>
+          
+          
+            <button class="btn btn-secondary" type="submit">Create</button>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>

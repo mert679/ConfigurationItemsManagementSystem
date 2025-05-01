@@ -1,0 +1,42 @@
+﻿@model List<DynamicConf.Models.ConfigurationItems>
+<h1>This is Configuration List</h1>
+<form class="d-flex" role="search" style="width:400px; height:auto" method="get">
+
+    <input class="form-control me-2" type="search" placeholder="Search Name" aria-label="Search" name="search">
+    <button class="btn btn-outline-success" type="submit">Search</button>
+    <a asp-controller="Configuration" asp-action="Create" type="button" class="btn btn-primary">Create</a>
+</form>
+
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Value</th>
+            <th scope="col">IsActive</th>
+            <th scope="col">ApplicationName</th>
+            <th scope="col">Edit</th>
+            
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var conf in Model)
+        {
+            <tr>
+                <td>@conf.Id</td>
+                <td>@conf.Name</td>
+                <td>@conf.Type</td>
+                <td>@conf.Value</td>
+                <td>@conf.IsActive</td>
+                <td>@conf.ApplicationName</td>
+                <td><a asp-controller="Configuration" asp-action="Edit" asp-route-id="@conf.Id" type="button" class="btn btn-warning">Edit</a></td>
+
+            </tr>
+        }
+
+
+    </tbody>
+</table>
